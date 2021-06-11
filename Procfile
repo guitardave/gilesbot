@@ -1,1 +1,1 @@
-worker: python GilesBot.py
+worker: python admin-bot.py
