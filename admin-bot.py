@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 
 bot = commands.Bot(command_prefix="!")
-token = DISCORD_TOKEN
+token = os.environ(DISCORD_TOKEN)
 mods = 845859190424993853
 bot.remove_command('help')
 
