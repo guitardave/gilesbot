@@ -116,7 +116,7 @@ async def unban_error(ctx, error):
 async def addrole(ctx, role: discord.Role, member: discord.Member=None):
     member = member or ctx.message.author
     await client.add_roles(member, role)
-    await ctx.send(f"{str(member.name)} just added the {role} ")`
+    await ctx.send(f"{str(member.name)} just added the role, {role} ")
    
  
 @addrole.error
