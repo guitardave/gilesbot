@@ -23,9 +23,9 @@ class Bot(commands.Bot):
         
                 
     async def on_ready(self):
-        print('GILESBOT ONLINE at {str(datetime.now())} ')
+        print(f'GILESBOT ONLINE at {str(datetime.now())} ')
         scheduler = AsyncIOScheduler()
-        scheduler.add_job(send_message, CronTrigger(month='1-12', day='*', hour=20, minute=00))
+        scheduler.add_job(send_message(self), CronTrigger(month='1-12', day='*', hour=20, minute=00))
         scheduler.start()
         
        
