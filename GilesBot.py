@@ -24,17 +24,17 @@ class Bot(commands.Bot):
                 
     async def on_ready(self):
         print(f'GILESBOT ONLINE at {str(datetime.now())} ')
-        scheduler = AsyncIOScheduler()
-        scheduler.add_job(send_message, CronTrigger(month='1-12', day='*', hour=20, minute=00))
-        scheduler.start()
+        # scheduler = AsyncIOScheduler()
+        # scheduler.add_job(send_message, CronTrigger(month='1-12', day='*', hour=20, minute=00))
+        # scheduler.start()
         
        
 
     @commands.command()
     async def giles(ctx):
         embed = discord.Embed(
-            title="GilesBot bot",
-            description="All bot bot listed below",
+            title="GilesBot",
+            description="All GilesBot Commands listed below",
             color=discord.Color.blurple(),
             author="Dave"
         )
