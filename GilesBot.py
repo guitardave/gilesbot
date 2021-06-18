@@ -15,19 +15,20 @@ class Bot(commands.Bot):
     
     def __init__(self):
         super(Bot, self).__init__(command_prefix=['!'])
+
+
+    async def send_message(self):
+        self.guild = client.get_channel(hotchan)
+        await self.guild.send(hotone)
         
                 
     async def on_ready(self):
         print('GILESBOT ONLINE at {str(datetime.now())} ')
         scheduler = AsyncIOScheduler()
-        scheduler.add_job(sendMessage, CronTrigger(month='1-12', day='*', hour=20, minute=00))
+        scheduler.add_job(send_message, CronTrigger(month='1-12', day='*', hour=20, minute=00))
         scheduler.start()
         
-        
-    async def sendMessage(self):
-        self.guild = client.get_channel(hotchan)
-        await self.guild.send(hotone)
-        
+       
 
     @commands.command()
     async def giles(ctx):
