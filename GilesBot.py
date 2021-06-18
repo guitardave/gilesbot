@@ -133,4 +133,4 @@ class Bot(commands.Bot):
 
 
 bot = Bot()
-bot.run(token)
+bot.run(bot.token)
