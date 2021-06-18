@@ -6,7 +6,7 @@ from datetime import datetime
 
 
 
-class Bot(bot.Bot):
+class Bot(commands.Bot):
 
     token = "ODQ0MDA2NDUyNzk2NzE5MTc1.YKMIQw.98Pqzj1h2LwdeFiB0hc-31vqFPA"
     hotone = "ATTENTION BAJORAN WORKERS\r\nIT SURE IS A HOT ONE TODAY, HUH?"
@@ -24,17 +24,17 @@ class Bot(bot.Bot):
                 
     async def on_ready(self):
         print(f'GILESBOT ONLINE at {str(datetime.now())} ')
-        scheduler = AsyncIOScheduler()
-        scheduler.add_job(send_message, CronTrigger(month='1-12', day='*', hour=20, minute=00))
-        scheduler.start()
+        # scheduler = AsyncIOScheduler()
+        # scheduler.add_job(send_message, CronTrigger(month='1-12', day='*', hour=20, minute=00))
+        # scheduler.start()
         
        
 
-    @bot.command()
+    @commands.command()
     async def giles(ctx):
         embed = discord.Embed(
-            title="GilesBot bot",
-            description="All bot bot listed below",
+            title="GilesBot",
+            description="All GilesBot Commands listed below",
             color=discord.Color.blurple(),
             author="Dave"
         )
@@ -47,7 +47,7 @@ class Bot(bot.Bot):
         await ctx.send(embed=embed)
 
 
-    @bot.command()
+    @commands.command()
     async def hotone(ctx):
         embed = discord.Embed(
             title="Hot One",
@@ -59,8 +59,8 @@ class Bot(bot.Bot):
         await ctx.send(embed=embed)
  
 
-    @bot.command()
-    @bot.has_permissions(manage_messages=True)
+    @commands.command()
+    @commands.has_permissions(manage_messages=True)
     async def clear(ctx, amount, month=None, day=None, year=None):
         if amount == "-":
             amount = None
@@ -80,8 +80,8 @@ class Bot(bot.Bot):
             await ctx.send("You don't have permission to use this command")
 
 
-    @bot.command()
-    @bot.has_role(mods)
+    @commands.command()
+    @commands.has_role(mods)
     async def kick(ctx, member: discord.Member, *, reason):
         await member.kick(reason=reason)
 
@@ -92,8 +92,8 @@ class Bot(bot.Bot):
             await ctx.send("You don't have permission to use this command")
 
 
-    @bot.command()
-    @bot.has_role(mods)
+    @commands.command()
+    @commands.has_role(mods)
     async def ban(ctx, member: discord.Member, *, reason):
         await member.ban(reason=reason)
 
@@ -104,8 +104,8 @@ class Bot(bot.Bot):
             await ctx.send("You don't have permission to use this command")
 
 
-    @bot.command()
-    @bot.has_role(mods)
+    @commands.command()
+    @commands.has_role(mods)
     async def unban(ctx, *, member):
         banned_members = await ctx.guild.bans()
         for person in banned_members:
@@ -120,7 +120,7 @@ class Bot(bot.Bot):
             await ctx.send("You don't have permission to use this command")
             
             
-    @bot.command()
+    @commands.command()
     async def addrole(ctx, role: discord.Role, member: discord.Member=None):
         member = member or ctx.message.author
         await client.add_roles(member, role)
