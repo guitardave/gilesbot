@@ -17,19 +17,23 @@ class Bot(commands.Bot):
         super(Bot, self).__init__(command_prefix=['!'])
 
 
+    async def on_ready(self):
+        return
+        
+
+class GilesBot(Bot):
+    async def on_ready(self):
+        super().__init__()
+        print(f'GILESBOT ONLINE at {str(datetime.now())} ')
+            # scheduler = AsyncIOScheduler()
+            # scheduler.add_job(send_message, CronTrigger(month='1-12', day='*', hour=20, minute=00))
+            # scheduler.start()
+
     async def send_message():
         guild = client.get_channel(hotchan)
         await guild.send(hotone)
-        
-                
-    async def on_ready(self):
-        print(f'GILESBOT ONLINE at {str(datetime.now())} ')
-        # scheduler = AsyncIOScheduler()
-        # scheduler.add_job(send_message, CronTrigger(month='1-12', day='*', hour=20, minute=00))
-        # scheduler.start()
-        
-       
 
+    
     @commands.command()
     async def giles(ctx):
         embed = discord.Embed(
