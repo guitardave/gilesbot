@@ -3,15 +3,15 @@ from apscheduler.triggers.cron import CronTrigger
 from discord.ext import commands
 import discord
 from datetime import datetime
-
+import os
 
 
 class Bot(commands.Bot):
 
-    token = "ODQ0MDA2NDUyNzk2NzE5MTc1.YKMIQw.98Pqzj1h2LwdeFiB0hc-31vqFPA"
+    token = os.getenv('DISCORD_TOKEN')
     hotone = "ATTENTION BAJORAN WORKERS\r\nIT SURE IS A HOT ONE TODAY, HUH?"
     mods = 805227140060676169
-    hotchan = 805220125585309716
+    hotchan = os.getenv('DISCORD_CHANNEL')
     
     def __init__(self):
         super(Bot, self).__init__(command_prefix=['!'])
