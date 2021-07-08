@@ -10,7 +10,7 @@ class Bot(commands.Bot):
 
     token = os.getenv('DISCORD_TOKEN')
     hotone = "ATTENTION BAJORAN WORKERS\r\nIT SURE IS A HOT ONE TODAY, HUH?"
-    mods = 805227140060676169
+    mods = os.getenv('DISCORD_MODS')
     hotchan = os.getenv('DISCORD_CHANNEL')
     
     def __init__(self):
