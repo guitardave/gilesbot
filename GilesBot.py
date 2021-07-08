@@ -6,9 +6,9 @@ from datetime import datetime
 import os
 
 
-token = os.getenv('DISCORD_TOKEN')
+token = os.environ.get('DISCORD_TOKEN')
 client = discord.Client()
-hotchan = os.getenv('DISCORD_CHANNEL')
+hotchan = os.environ.get('DISCORD_CHANNEL')
 hotone = "ATTENTION BAJORAN WORKERS\r\nIT SURE IS A HOT ONE TODAY, HUH?"
 
 
