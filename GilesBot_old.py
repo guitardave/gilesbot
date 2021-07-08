@@ -3,10 +3,12 @@ from apscheduler.triggers.cron import CronTrigger
 from discord.ext import commands
 import discord
 from datetime import datetime
+import os
+
 
 token = os.getenv('DISCORD_TOKEN')
 client = discord.Client()
-hotchan = 805220125585309716
+hotchan = os.getenv('DISCORD_CHANNEL')
 hotone = "ATTENTION BAJORAN WORKERS\r\nIT SURE IS A HOT ONE TODAY, HUH?"
 
 
