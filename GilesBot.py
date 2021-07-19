@@ -8,13 +8,12 @@ import os
 
 token = os.environ.get('DISCORD_TOKEN')
 client = discord.Client()
-hotchan = os.environ.get('DISCORD_CHANNEL')
-hotone = "ATTENTION BAJORAN WORKERS\r\nIT SURE IS A HOT ONE TODAY, HUH?"
+hotchan = '805220125585309716'
 
 
 async def sendMessage():
     guild = client.get_channel(hotchan)
-    await guild.send(hotone)
+    await guild.send("ATTENTION BAJORAN WORKERS\r\nIT SURE IS A HOT ONE TODAY, HUH?")
 
 
 @client.event
